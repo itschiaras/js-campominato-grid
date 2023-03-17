@@ -47,15 +47,17 @@ function play(e) {
     // ciclo for per generare i quadratini all'interno della griglia
     for (let i = 1; i <= squareNumbers; i++) {
         const square = drawSquare(i, squarePerRow);
-        square.addEventListener('click', function () {
-            square.classList.add('noBomb');
-            console.dir(square.innerText);
-        })
         playground.appendChild(square);
 
     }
 
+    playground.addEventListener('click', (ev) => {
+        const squareEl = ev.target;
+        squareEl.classList.add("noBomb");
+        console.dir(squareEl.innerText);
+    })
 }
+
 
 
 // creo variabile per prendere il form ed aggiungergli l'evento submit e la funzione play
